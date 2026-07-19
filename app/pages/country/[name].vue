@@ -16,7 +16,10 @@
         <div>
           <p><b>Native Name</b>: {{ selectedCountry.nativeName }}</p>
 
-          <p><b>Population</b>: {{ selectedCountry.population }}</p>
+          <p>
+            <b>Population</b>:
+            {{ formatNumber(selectedCountry.population) }}
+          </p>
 
           <p><b>Region</b>: {{ selectedCountry.region }}</p>
 
@@ -48,6 +51,7 @@
 <script>
 import { Icon } from "@iconify/vue";
 import countryData from "~/assets/data/data.json";
+import { formatNumber } from "~/utils/formatNumber.js";
 export default {
   components: {
     Icon,
@@ -64,6 +68,7 @@ export default {
     );
   },
   methods: {
+    formatNumber,
     goBack() {
       this.$router.back();
     },
@@ -71,23 +76,22 @@ export default {
   computed: {
     currencies() {
       const currencyNames = [];
-      this.selectedCountry.currencies.forEach((currency) =>
+      this.selectedCountry.currencies?.forEach((currency) =>
         currencyNames.push(currency.name),
       );
       return currencyNames;
     },
     languages() {
       const languageNames = [];
-      this.selectedCountry.languages.forEach((lang) =>
+      this.selectedCountry.languages?.forEach((lang) =>
         languageNames.push(lang.name),
       );
       return languageNames;
     },
     borderCountryName() {
       const borderCountryName = [];
-      if (!this.selectedCountry) return;
 
-      this.selectedCountry.borders.forEach((border) => {
+      this.selectedCountry.borders?.forEach((border) => {
         const countryName = this.countryData.find(
           (country) => country.alpha3Code == border,
         ).name;
@@ -129,8 +133,9 @@ export default {
   display: flex;
 }
 .back-btn {
+  color: var(--text);
   width: 100px;
-  background-color: white;
+  background-color: var(--elements);
   display: flex;
   justify-content: space-evenly;
   margin: 42px 0 64px 0 !important;
@@ -146,12 +151,24 @@ export default {
   align-self: center;
   text-align: center;
   padding: 8px;
-  box-shadow: 1px 1px 1px 1px rgb(226, 225, 225);
-
+  box-shadow: var(--shadow);
   border-radius: 4px;
+  background-color: var(--elements);
 }
 .back-icon {
   width: 20px;
   height: 20px;
+}
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    grid-template-columns: 1fr;
+  }
+  .border-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 </style>

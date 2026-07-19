@@ -1,11 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap");
 
 :root {
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 50%);
+  --background: hsl(0, 0%, 99%);
+  --elements: hsl(0, 100%, 100%);
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --dropdown: hsl(0, 4%, 82%);
 }
-
+.dark {
+  --text: hsl(0, 100%, 100%);
+  --background: hsl(207, 26%, 17%);
+  --elements: hsl(209, 23%, 22%);
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --dropdown: hsl(0, 2%, 74%);
+}
 body {
   font-family: "Nunito Sans", sans-serif;
-  background-color: white;
+  color: var(--text);
+  background-color: var(--background);
   margin: 0;
   font-size: 14px;
 }

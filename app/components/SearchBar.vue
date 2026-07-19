@@ -27,23 +27,30 @@ export default {
   align-items: center;
 }
 input {
+  color: var(--text);
+  background-color: var(--elements);
   width: 100%;
   border-radius: 4px;
   height: 50px;
   border: none;
   padding: 8px 32px 8px 64px;
-  box-shadow:
-    0 4px 8px 0 rgb(226, 225, 225),
-    0 6px 20px 0 rgb(226, 225, 225);
+  box-shadow: var(--shadow);
 }
 input::placeholder {
   font-family: "Nunito Sans", sans-serif;
+  color: var(--text);
 }
 .search-icon {
-  color: grey;
+  color: var(--text);
   width: 20px;
   height: 20px;
   position: absolute;
   left: 24px;
+}
+@media (max-width: 600px) {
+  .search-container,
+  .dropbtn {
+    width: 100%;
+  }
 }
 </style>

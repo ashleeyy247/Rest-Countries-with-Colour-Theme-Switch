@@ -68,17 +68,18 @@ export default {
   padding: 16px;
   border: none;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  background-color: white;
+  box-shadow: var(--shadow);
+  background-color: var(--elements);
   margin-bottom: 4px;
+  color: var(--text);
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   position: absolute;
-  background-color: white;
+  background-color: var(--elements);
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
   z-index: 1;
   border-radius: 4px;
   padding: 8px 0;
@@ -93,7 +94,7 @@ export default {
 
 /* Change color of dropdown links on hover */
 .dropdown-options:hover {
-  background-color: #ddd;
+  background-color: var(--dropdown);
   border-radius: 8px;
 }
 

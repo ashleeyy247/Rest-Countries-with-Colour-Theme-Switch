@@ -4,7 +4,7 @@
     <div class="details-container">
       <div class="card-title">{{ country.name }}</div>
       <div class="card-description">
-        <div><b>Population: </b>{{ country.population }}</div>
+        <div><b>Population: </b>{{ formatNumber(country.population) }}</div>
         <div><b>Region: </b>{{ country.region }}</div>
         <div><b>Capital: </b>{{ country.capital }}</div>
       </div>
@@ -13,10 +13,14 @@
 </template>
 
 <script>
+import { formatNumber } from "~/utils/formatNumber";
 export default {
   props: ["country"],
   data() {
     return {};
+  },
+  methods: {
+    formatNumber,
   },
 };
 </script>
@@ -25,14 +29,12 @@ export default {
   display: flex;
   flex-direction: column;
   border-radius: 4px;
-  box-shadow:
-    0 4px 8px 0 rgb(226, 225, 225),
-    0 6px 20px 0 rgb(226, 225, 225);
+  box-shadow: var(--shadow);
 }
 .card-container:hover {
   cursor: pointer;
   box-shadow:
-    0 4px 8px 0 rgb(226, 225, 225),
+    0 4px 8px 0 var(--elements),
     0 6px 16px 0;
 }
 .card-title {

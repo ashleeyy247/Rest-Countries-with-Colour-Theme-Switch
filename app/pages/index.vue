@@ -65,7 +65,27 @@ export default {
 }
 .country-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 64px;
+}
+@media (max-width: 900px) {
+  .menu-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .country-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .country-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 </style>
