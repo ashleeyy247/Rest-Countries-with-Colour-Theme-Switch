@@ -10,8 +10,18 @@ export const useTheme = () => {
 
   const initTheme = () => {
     if (typeof window === "undefined") return;
+
     const saved = localStorage.getItem("theme");
-    theme.value = saved === "dark" ? "dark" : "light";
+
+    if (saved) {
+      theme.value = saved === "dark" ? "dark" : "light";
+    } else {
+      const systemPrefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+      theme.value = systemPrefersDark ? "dark" : "light";
+    }
+
     applyTheme(theme.value);
   };
 
